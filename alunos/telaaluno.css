@@ -1,0 +1,365 @@
+/* Importação de fontes premium */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Variáveis CSS únicas */
+:root {
+  /* Paleta de cores única */
+  --cosmic-blue: #667eea;
+  --stellar-purple: #764ba2;
+  --nebula-pink: #f093fb;
+  --aurora-green: #00f5a0;
+  --solar-orange: #ff9a56;
+  --meteor-red: #ff6b6b;
+  --deep-space: #1a1a2e;
+  --star-white: #ffffff;
+    
+  /* Gradientes cinematográficos */
+  --gradient-cosmic: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --gradient-aurora: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+  --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 50%, #fa709a 100%);
+  --gradient-ocean: linear-gradient(135deg, #667db6 0%, #0082c8 50%, #667db6 100%);
+  --gradient-forest: linear-gradient(135deg, #134e5e 0%, #71b280 50%, #134e5e 100%);
+  --gradient-fire: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ff9a9e 100%);
+    
+  /* Efeitos glassmorphism */
+  --glass-primary: rgba(255, 255, 255, 0.25);
+  --glass-secondary: rgba(255, 255, 255, 0.15);
+  --glass-accent: rgba(255, 255, 255, 0.35);
+  --border-glass: rgba(255, 255, 255, 0.3);
+    
+  /* Sombras avançadas */
+  --shadow-soft: 0 8px 32px rgba(31, 38, 135, 0.37);
+  --shadow-medium: 0 15px 35px rgba(31, 38, 135, 0.2);
+  --shadow-strong: 0 25px 50px rgba(31, 38, 135, 0.25);
+  --shadow-neon: 0 0 40px rgba(102, 126, 234, 0.6);
+  --shadow-colored: 0 20px 40px rgba(253, 147, 251, 0.3);
+    
+  /* Transições suaves */
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Reset avançado */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Body com fundo cinematográfico */
+body {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  background: 
+      radial-gradient(ellipse at top left, rgba(102, 126, 234, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at top right, rgba(240, 147, 251, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(0, 245, 160, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(255, 154, 86, 0.25) 0%, transparent 50%),
+      conic-gradient(from 180deg at 50% 50%, #667eea 0deg, #764ba2 120deg, #f093fb 240deg, #667eea 360deg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de partículas flutuantes */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+      radial-gradient(circle at 15% 25%, rgba(102, 126, 234, 0.1) 3px, transparent 3px),
+      radial-gradient(circle at 85% 75%, rgba(240, 147, 251, 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 45% 15%, rgba(0, 245, 160, 0.06) 4px, transparent 4px),
+      radial-gradient(circle at 75% 85%, rgba(255, 154, 86, 0.05) 2px, transparent 2px);
+  background-size: 250px 250px, 180px 180px, 300px 300px, 200px 200px;
+  animation: particleFloat 25s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+      transform: translate(0px, 0px) rotate(0deg);
+      filter: hue-rotate(0deg);
+  }
+  25% { 
+      transform: translate(20px, -20px) rotate(90deg);
+      filter: hue-rotate(90deg);
+  }
+  50% { 
+      transform: translate(-15px, -30px) rotate(180deg);
+      filter: hue-rotate(180deg);
+  }
+  75% { 
+      transform: translate(-25px, 10px) rotate(270deg);
+      filter: hue-rotate(270deg);
+  }
+}
+
+/* Container principal com glassmorphism avançado */
+.menu-container {
+  background: var(--glass-primary);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 60px 50px;
+  border-radius: 30px;
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  animation: containerEntrance 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+@keyframes containerEntrance {
+  from {
+      opacity: 0;
+      transform: translateY(60px) scale(0.8) rotateX(10deg);
+      filter: blur(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0deg);
+      filter: blur(0);
+  }
+}
+
+.menu-container:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-neon);
+  transition: var(--transition-smooth);
+}
+
+/* Borda animada do container */
+.menu-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-cosmic);
+  border-radius: 32px;
+  z-index: -1;
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { 
+      opacity: 0.6;
+      filter: hue-rotate(0deg);
+  }
+  50% { 
+      opacity: 1;
+      filter: hue-rotate(180deg);
+  }
+}
+
+/* Logo com efeitos especiais */
+.logo {
+  font-size: 5rem;
+  margin-bottom: 30px;
+  background: var(--gradient-cosmic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  animation: logoFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(102, 126, 234, 0.3));
+}
+
+@keyframes logoFloat {
+  0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+  }
+  25% { 
+      transform: translateY(-10px) rotate(2deg);
+  }
+  75% { 
+      transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+.logo::after {
+  content: '✨';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 2rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+      opacity: 0.5;
+      transform: scale(1) rotate(0deg);
+  }
+  50% { 
+      opacity: 1;
+      transform: scale(1.2) rotate(180deg);
+  }
+}
+
+/* Título principal */
+h1 {
+  color: var(--deep-space);
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Space Grotesk', sans-serif;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.02em;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-aurora);
+  border-radius: 2px;
+  animation: lineExpand 3s ease-in-out infinite alternate;
+}
+
+@keyframes lineExpand {
+  from { width: 80px; opacity: 0.7; }
+  to { width: 120px; opacity: 1; }
+}
+
+/* Parágrafo descritivo */
+p {
+  font-size: 1.2rem;
+  color: var(--deep-space);
+  margin-bottom: 40px;
+  font-weight: 400;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Container dos botões */
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Estilo base dos botões */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: var(--transition-elastic);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn i {
+  margin-right: 15px;
+  font-size: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+/* Efeito de brilho nos botões */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.8s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Botão Ver Alunos - Tema Azul Cósmico */
+.btn:first-of-type {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  background-size: 200% 200%;
+  color: var(--star-white);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+.btn:first-of-type:hover {
+  transform: translateY(-8px) scale(1.05) rotateX(5deg);
+  background-position: 100% 0;
+  box-shadow: 
+      0 25px 50px rgba(102, 126, 234, 0.6),
+      0 0 40px rgba(102, 126, 234, 0.8);
+  animation: buttonPulseBlue 0.6s ease-in-out infinite;
+}
+
+.btn:first-of-type:hover i {
+  transform: scale(1.2) rotate(10deg);
+  animation: iconDance 0.8s ease-in-out;
+}
+
+@keyframes buttonPulseBlue {
+  0%, 100% { 
+      box-shadow: 
+          0 25px 50px rgba(102, 126, 234, 0.6),
+          0 0 40px rgba(102, 126, 234, 0.8);
+  }
+  50% { 
+      box-shadow: 
+          0 30px 60px rgba(102, 126, 234, 0.8),
+          0 0 50px rgba(102, 126, 234, 1);
+  }
+}
+
+/* Botão Cadastrar - Tema Verde Aurora */
+.btn.secundario {
+  background: linear-gradient(135deg, #00f5a0 0%, #00d9ff 50%, #00f5a0 100%);
+  background-size: 200% 200%;
+  color: var(--star-white);
+  box-shadow: 0 15px 35px rgba(0, 245, 160, 0.4);
+}
+
+.btn.secundario:hover {
+  transform: translateY(-8px) scale(1.05) rotateX(5deg);
+  background-position: 100% 0;
+  box-shadow: 
+      0 25px 50px rgba(0, 245, 160, 0.6),
+      0 0 40px rgba(0, 245, 160, 0.8);
+  animation: buttonPulseGreen 0.6s ease-in-out infinite;
+}
+
+.btn.secundario:hover i {
+  transform: scale(1.2) rotate(-10deg);
+}

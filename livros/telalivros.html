@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciamento de Biblioteca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    .menu-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 100%;
+      max-width: 450px;
+      transform: translateY(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .menu-container:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 16px 20px;
+      background-color: #667eea;
+      color: white;
+      font-size: 17px;
+      font-weight: 500;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(102, 126, 234, 0.2);
+    }
+
+    .btn i {
+      margin-right: 12px;
+      font-size: 20px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #5a6fe0;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn.secundario {
+      background-color: #4caf50;
+      box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+    }
+
+    .btn.secundario:hover {
+      background-color: #43a047;
+      box-shadow: 0 6px 15px rgba(76, 175, 80, 0.3);
+    }
+
+    .btn.relatorio {
+      background-color: #ff9800;
+      box-shadow: 0 4px 10px rgba(255, 152, 0, 0.2);
+    }
+
+    .btn.relatorio:hover {
+      background-color: #f57c00;
+      box-shadow: 0 6px 15px rgba(255, 152, 0, 0.3);
+    }
+
+    .btn.voltar {
+      background-color: #f44336;
+      box-shadow: 0 4px 10px rgba(244, 67, 54, 0.2);
+    }
+
+    .btn.voltar:hover {
+      background-color: #e53935;
+      box-shadow: 0 6px 15px rgba(244, 67, 54, 0.3);
+    }
+    
+    .logo {
+      font-size: 50px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-container">
+    <div class="logo">
+      <i class="fas fa-book-reader"></i>
+    </div>
+    <h1>Gerenciamento de Biblioteca</h1>
+
+    <div class="btn-container">
+      <a href="mostrar_livros.php" class="btn">
+        <i class="fas fa-book"></i> Visualizar Livros
+      </a>
+      <a href="buscar_livros.html" class="btn secundario">
+        <i class="fas fa-search"></i> Pesquisar Livros
+      </a>
+      <a href="/tcc/livros/emp/tela_emp.html" class="btn relatorio">
+        <i class="fas fa-box"></i> Gerenciar Empréstimos
+      </a>
+      <a href="/tcc/menu/menu.html" class="btn voltar">
+        <i class="fas fa-arrow-left"></i> Voltar ao Menu Principal
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

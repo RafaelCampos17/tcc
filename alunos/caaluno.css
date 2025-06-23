@@ -1,0 +1,102 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .cabecalho {
+    height: 100px;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 1px solid #444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cabecalho h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .cabecalho nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cabecalho nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: color 0.2s ease;
+  }
+  
+  .cabecalho nav a:hover {
+    color: #ccc;
+  }
+  
+  .conteudo {
+    height: 600px;
+    width: 100%;
+    background-color: #fff;
+    padding: 40px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .conteudo h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 20px;
+  }
+  
+  .conteudo p {
+    margin: 0 0 20px;
+  }
+  
+  .rodape {
+    height: 100px;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #444;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .rodape p {
+    margin: 0;
+  }
+  
+  .rodape a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: color 0.2s ease;
+  }
+  
+  .rodape a:hover {
+    color: #ccc;
+  }
