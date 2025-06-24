@@ -2,20 +2,36 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Gestão de Alunos - CR7</title>
+  <title>🎓 Gestão Estelar de Alunos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Fonte e Ícones -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Fonte & Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  
-  <!-- Estilo Cristiano Ronaldo 2013 -->
-  <link rel="stylesheet" href="cr7.css" />
+
+  <!-- Estilo Cósmico -->
+  <link rel="stylesheet" href="cosmic.css" />
+
+  <!-- Estilo para o ícone flutuante -->
+  <style>
+    .logo i {
+      animation: floatIcon 3s ease-in-out infinite;
+      display: inline-block;
+      font-size: 72px;
+      color: #ffff00;
+      text-shadow: 0 0 20px #ffff00, 0 0 40px #ffaa00;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+  </style>
 </head>
 <body>
   <div class="menu-container">
     <div class="logo">
-      <i class="fas fa-futbol"></i>
+      <i class="fas fa-user-graduate"></i>
     </div>
 
     <h1>Gestão de Alunos</h1>
@@ -23,11 +39,13 @@
 
     <div class="btn-container">
       <a href="ver_alunos.php" class="btn">
-        <i class="fas fa-list"></i> Ver alunos
+        <i class="fas fa-users"></i> Ver Alunos Cadastrados
       </a>
+
       <a href="cadastro_aluno.php" class="btn secundario">
-        <i class="fas fa-user-plus"></i> Cadastrar aluno
+        <i class="fas fa-user-plus"></i> Cadastrar Aluno
       </a>
+
       <a href="/tcc/menu/menu.html" class="btn voltar">
         <i class="fas fa-arrow-left"></i> Voltar ao Menu
       </a>

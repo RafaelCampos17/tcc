@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+:root {
+  --cosmic-cyan: #00ffff;
+  --cosmic-magenta: #ff00ff;
+  --cosmic-yellow: #ffff00;
+  --cosmic-dark: #0a001f;
+  --cosmic-purple: #8a2be2;
+  --cosmic-neon: #39ff14;
+  --cosmic-bg: radial-gradient(circle at 30% 30%, #32004b, #000013 80%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: var(--cosmic-bg);
+  color: var(--cosmic-cyan);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Nebulosa animada */
+body::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: repeating-radial-gradient(circle, rgba(255, 0, 255, 0.1) 0, transparent 200px);
+  animation: swirl 120s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes swirl {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.menu-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 0, 31, 0.85);
+  border: 3px solid var(--cosmic-magenta);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 40px var(--cosmic-magenta), 0 0 80px var(--cosmic-cyan);
+  backdrop-filter: blur(6px);
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 30px var(--cosmic-magenta), 0 0 60px var(--cosmic-cyan); }
+  50% { box-shadow: 0 0 60px var(--cosmic-cyan), 0 0 90px var(--cosmic-yellow); }
+}
+
+.logo {
+  font-size: 64px;
+  color: var(--cosmic-yellow);
+  text-shadow: 0 0 20px var(--cosmic-yellow), 0 0 50px var(--cosmic-yellow);
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--cosmic-neon);
+  text-shadow: 0 0 15px var(--cosmic-neon);
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  padding: 16px 24px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--cosmic-cyan), var(--cosmic-magenta));
+  color: #fff;
+  box-shadow: 0 0 20px var(--cosmic-cyan);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 60%);
+  transform: rotate(0deg);
+  animation: shine 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes shine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px var(--cosmic-yellow), 0 0 60px var(--cosmic-purple);
+  background-position: right center;
+}
+
+.btn i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.btn.secundario {
+  background: linear-gradient(135deg, #ff7aff, #ff4aff);
+  box-shadow: 0 0 15px #ff4aff;
+}
+
+.btn.voltar {
+  background: linear-gradient(135deg, #4444ff, #00bfff);
+  box-shadow: 0 0 15px #00bfff;
+}
+
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 30px 20px;
+  }
+
+  .btn {
+    width: 90%;
+  }
+}

@@ -1,0 +1,157 @@
+/* ----------- VARIÁVEIS DE COR ----------- */
+:root {
+  --cosmic-blue: #00fff0;
+  --cosmic-purple: #b400ff;
+  --cosmic-gradient: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-purple));
+  --bg-dark: #0a002b;
+  --text-light: #e0e0ff;
+  --input-bg: rgba(10, 0, 43, 0.7);
+  --shadow-glow: 0 0 15px var(--cosmic-purple);
+}
+
+/* ----------- RESET E BASE ----------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #050014, #0a002b);
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ----------- CONTAINER ----------- */
+.container {
+  background: rgba(10, 0, 43, 0.85);
+  border-radius: 12px;
+  box-shadow:
+    0 0 25px var(--cosmic-purple),
+    inset 0 0 40px var(--cosmic-blue);
+  width: 100%;
+  max-width: 600px;
+  padding: 25px 40px;
+  text-align: center;
+}
+
+/* ----------- ÍCONE DO CABEÇALHO ----------- */
+.header-icon {
+  font-size: 50px;
+  color: var(--cosmic-purple);
+  text-shadow: 0 0 12px var(--cosmic-purple), 0 0 20px var(--cosmic-blue);
+  margin-bottom: 15px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ----------- TÍTULO E SUBTÍTULO ----------- */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 10px;
+  color: var(--cosmic-purple);
+  text-shadow: 0 0 8px var(--cosmic-purple);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #aaaaffcc;
+  margin-bottom: 30px;
+}
+
+/* ----------- FORMULÁRIO ----------- */
+form {
+  text-align: left;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ----------- BOTÃO CADASTRAR ----------- */
+button {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  color: var(--text-light);
+  background: linear-gradient(135deg, #5de3d9, #7c54c8);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 6px #7c54c8aa, 0 0 15px #5de3d9aa;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.02);
+  box-shadow:
+    0 0 12px #7c54c8cc,
+    0 0 25px #5de3d9cc;
+}
+
+/* ----------- BOTÃO VOLTAR AO MENU ----------- */
+.voltar {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 25px;
+  font-weight: 700;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: var(--cosmic-purple);
+  background: rgba(180, 0, 255, 0.1);
+  border: 2px solid var(--cosmic-purple);
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(180, 0, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.voltar:hover {
+  background: var(--cosmic-purple);
+  color: var(--text-light);
+  box-shadow: 0 0 20px var(--cosmic-purple), 0 0 40px var(--cosmic-blue);
+  transform: scale(1.05);
+}
+
+/* ----------- ANIMAÇÃO FLOAT ----------- */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 0 12px var(--cosmic-purple));
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 24px var(--cosmic-purple));
+  }
+}
+
+/* ----------- RESPONSIVO ----------- */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 20px;
+    max-width: 90vw;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  button {
+    font-size: 0.85rem;
+  }
+
+  .voltar {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    margin-top: 20px;
+  }
+}
