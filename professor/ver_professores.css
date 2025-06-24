@@ -1,0 +1,155 @@
+:root {
+  --cosmic-blue: #00fff0;
+  --cosmic-purple: #b400ff;
+  --cosmic-gradient: linear-gradient(135deg, var(--cosmic-blue), var(--cosmic-purple));
+  --bg-dark: #0a002b;
+  --text-light: #e0e0ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at center, #050014, var(--bg-dark));
+  color: var(--text-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.menu-container {
+  background: linear-gradient(145deg, #0a002b, #19004d);
+  border-radius: 20px;
+  box-shadow:
+    0 12px 30px rgba(180, 0, 255, 0.8),
+    inset 0 0 40px rgba(0, 255, 240, 0.3);
+  padding: 50px 45px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  transition: box-shadow 0.4s ease;
+}
+.menu-container:hover {
+  box-shadow:
+    0 15px 45px rgba(180, 0, 255, 1),
+    inset 0 0 55px rgba(0, 255, 240, 0.5);
+}
+
+.logo {
+  font-size: 60px;
+  color: var(--cosmic-purple);
+  text-shadow: 0 0 18px var(--cosmic-purple), 0 0 32px var(--cosmic-blue);
+  margin-bottom: 30px;
+  animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  margin-bottom: 25px;
+  color: var(--cosmic-purple);
+  text-shadow: 0 0 12px var(--cosmic-purple);
+  letter-spacing: 1.1px;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #aaaaffcc;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 0;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-light);
+  background: var(--cosmic-gradient);
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 6px 15px rgba(124, 84, 200, 0.7),
+    0 0 35px rgba(93, 227, 217, 0.8);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+.btn i {
+  font-size: 22px;
+  filter: drop-shadow(0 0 5px var(--cosmic-purple));
+}
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 30px var(--cosmic-purple),
+    0 0 50px var(--cosmic-blue);
+}
+
+/* Botão voltar */
+.btn.voltar {
+  background: transparent;
+  border: 3px solid var(--cosmic-purple);
+  color: var(--cosmic-purple);
+  box-shadow: 0 0 10px var(--cosmic-purple);
+  font-weight: 600;
+  transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.btn.voltar:hover {
+  background: var(--cosmic-purple);
+  color: var(--text-light);
+  box-shadow:
+    0 0 40px var(--cosmic-purple),
+    0 0 60px var(--cosmic-blue);
+  transform: scale(1.07);
+}
+
+/* Animação float para o logo */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 0 18px var(--cosmic-purple));
+  }
+  50% {
+    transform: translateY(-12px);
+    filter: drop-shadow(0 0 35px var(--cosmic-purple));
+  }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 35px 25px;
+    max-width: 90vw;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 14px 0;
+  }
+}
