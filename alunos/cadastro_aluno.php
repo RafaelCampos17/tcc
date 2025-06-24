@@ -31,6 +31,124 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #e3f2fd, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        color: #333;
+    }
+
+    .container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        box-sizing: border-box;
+    }
+
+    .header-icon {
+        font-size: 50px;
+        color: #007bff;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    .subtitle {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .input-wrapper {
+        position: relative;
+    }
+
+    .input-icon {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        color: #aaa;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 10px 10px 10px 35px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: 0.3s;
+    }
+
+    input:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .voltar {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s;
+    }
+
+    .voltar:hover {
+        color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            margin: 20px;
+            padding: 30px 20px;
+        }
+    }
+</style>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>📚 Cadastro de Aluno - Sistema Acadêmico</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="caaluno.css">
 </head>
 <body>
     <div class="container">
@@ -80,5 +198,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
         <a href="telaaluno.html" class="voltar">🔙 Voltar ao Menu</a>
     </div>
+
+    <script>
+        // Forçar scroll habilitado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove qualquer CSS que impeça o scroll
+            document.documentElement.style.overflow = 'auto';
+            document.documentElement.style.height = 'auto';
+            document.body.style.overflow = 'auto';
+            document.body.style.height = 'auto';
+            document.body.style.minHeight = '100vh';
+            
+            // Remove position fixed de qualquer elemento
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                const computedStyle = window.getComputedStyle(element);
+                if (computedStyle.position === 'fixed' && element.tagName !== 'INPUT' && element.tagName !== 'BUTTON') {
+                    element.style.position = 'relative';
+                }
+                if (computedStyle.overflow === 'hidden' && element !== document.body && element !== document.documentElement) {
+                    element.style.overflow = 'visible';
+                }
+            });
+            
+            console.log('Scroll forçado habilitado');
+        });
+        
+        // Verificar se o scroll está funcionando
+        window.addEventListener('scroll', function() {
+            console.log('Scroll detectado:', window.scrollY);
+        });
+    </script>
 </body>
 </html>
