@@ -7,7 +7,6 @@ if (!$id) {
     die("ID do aluno não fornecido.");
 }
 
-// Buscar aluno existente
 $stmt = $pdo->prepare("SELECT * FROM aluno WHERE id = ?");
 $stmt->execute([$id]);
 $aluno = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -16,7 +15,6 @@ if (!$aluno) {
     die("Aluno não encontrado.");
 }
 
-// Atualizar se enviado por POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'] ?? '';
     $serie = $_POST['serie'] ?? '';
@@ -35,26 +33,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Editar Aluno</title>
-    <link rel="stylesheet" href="editar_aluno.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="edit_aluno.css"> <!-- CSS Premium já está pronto -->
 </head>
 <body>
     <div class="container">
         <h1>Editar Aluno</h1>
         <form method="post">
-            <label>Nome:</label>
-            <input type="text" name="nome" value="<?= htmlspecialchars($aluno['nome']) ?>" required>
+            <label for="nome">Nome do Aluno</label>
+            <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($aluno['nome']) ?>" required placeholder="Digite o nome completo">
 
-            <label>Série:</label>
-            <input type="text" name="serie" value="<?= htmlspecialchars($aluno['serie']) ?>" required>
+            <label for="serie">Série</label>
+            <input type="text" id="serie" name="serie" value="<?= htmlspecialchars($aluno['serie']) ?>" required placeholder="Ex: 3º Ano B">
 
-            <label>Email:</label>
-            <input type="email" name="email" value="<?= htmlspecialchars($aluno['email']) ?>" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="<?= htmlspecialchars($aluno['email']) ?>" required placeholder="email@exemplo.com">
 
             <button type="submit">Salvar Alterações</button>
         </form>
+
         <a href="ver_alunos.php">Voltar</a>
     </div>
 </body>
-
+</html>
