@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+  color: #fff;
+}
+
+.menu-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(20, 20, 40, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00f0ff80;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8em;
+  color: #00f0ff;
+  margin-bottom: 20px;
+}
+
+.btn-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: linear-gradient(90deg, #00f0ff, #6f00ff);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: background 0.3s, transform 0.2s;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #6f00ff, #00f0ff);
+  transform: scale(1.05);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.galactic-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid #00f0ff30;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.galactic-table th,
+.galactic-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.galactic-table th {
+  background: #00f0ff30;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  color: #00f0ff;
+}
+
+.galactic-table tr:hover {
+  background: rgba(0, 255, 255, 0.08);
+}
+
+.actions .btn {
+  margin: 0 5px;
+  padding: 8px 12px;
+}
+
+.btn-edit {
+  background: #0cf;
+}
+
+.btn-delete {
+  background: #f03;
+}
+
+.btn.voltar {
+  background: #ff0000;
+    margin-top: 60px; /* antes estava 40px no inline */
+    display: inline-block;
+}
+
+
+.empty-message {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #ccc;
+}
