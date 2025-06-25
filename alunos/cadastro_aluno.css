@@ -29,46 +29,37 @@ body {
 /* ----------- CONTAINER ----------- */
 .container {
   background: rgba(10, 0, 43, 0.85);
-  border-radius: 12px;
+  border-radius: 18px;
   box-shadow:
     0 0 25px var(--cosmic-purple),
     inset 0 0 40px var(--cosmic-blue);
   width: 100%;
-  max-width: 600px;
-  padding: 25px 40px;
+  max-width: 460px;  /* menor */
+  padding: 20px 30px; /* menor */
   text-align: center;
-}
-
-/* ----------- ÍCONE DO CABEÇALHO ----------- */
-.header-icon {
-  font-size: 50px;
-  color: var(--cosmic-purple);
-  text-shadow: 0 0 12px var(--cosmic-purple), 0 0 20px var(--cosmic-blue);
-  margin-bottom: 15px;
-  animation: float 4s ease-in-out infinite;
 }
 
 /* ----------- TÍTULO E SUBTÍTULO ----------- */
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
-  font-size: 2rem;
-  margin: 0 0 10px;
+  font-size: 1.8rem;
+  margin: 0 0 12px;
   color: var(--cosmic-purple);
   text-shadow: 0 0 8px var(--cosmic-purple);
 }
 
 .subtitle {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: #aaaaffcc;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 /* ----------- FORMULÁRIO ----------- */
 form {
   text-align: left;
-  max-width: 520px;
+  max-width: 420px;
   margin: 0 auto;
 }
 
@@ -82,7 +73,7 @@ button {
   color: var(--text-light);
   background: linear-gradient(135deg, #5de3d9, #7c54c8);
   border: none;
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0 0 6px #7c54c8aa, 0 0 15px #5de3d9aa;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -137,12 +128,12 @@ button:hover {
 /* ----------- RESPONSIVO ----------- */
 @media (max-width: 600px) {
   .container {
-    padding: 20px 20px;
+    padding: 18px 18px;
     max-width: 90vw;
   }
 
   h1 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   button {

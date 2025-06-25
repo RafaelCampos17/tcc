@@ -158,13 +158,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>📚 Cadastro de Aluno - Sistema Acadêmico</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="caaluno.css">
+    <link rel="stylesheet" href="cadastro_aluno.css">
 </head>
 <body>
     <div class="container">
-        <div class="header-icon">
-            <i class="fas fa-user-graduate"></i>
-        </div>
         
         <h1>Cadastro de Aluno</h1>
         <p class="subtitle">Preencha os dados para cadastrar um novo aluno no sistema</p>

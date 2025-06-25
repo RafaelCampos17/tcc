@@ -7,7 +7,6 @@ if (!$id) {
     die("ID do professor não fornecido.");
 }
 
-// Buscar professor existente
 $stmt = $pdo->prepare("SELECT * FROM professor WHERE id = ?");
 $stmt->execute([$id]);
 $professor = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -16,7 +15,8 @@ if (!$professor) {
     die("Professor não encontrado.");
 }
 
-// Atualizar se enviado por POST
+$success = false;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'] ?? '';
     $cpf = $_POST['cpf'] ?? '';
@@ -25,92 +25,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("UPDATE professor SET nome = ?, cpf = ?, email = ? WHERE id = ?");
     $stmt->execute([$nome, $cpf, $email, $id]);
 
-    header("Location: ver_professores.php");
-    exit;
+    $success = true;
+
+    $professor['nome'] = $nome;
+    $professor['cpf'] = $cpf;
+    $professor['email'] = $email;
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Editar Professor</title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(to right, #36d1dc, #5b86e5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="editar_professor.css" />
+    <script>
+        function cpfMask(input) {
+            let v = input.value.replace(/\D/g, '');
+            v = v.replace(/(\d{3})(\d)/, '$1.$2');
+            v = v.replace(/(\d{3})(\d)/, '$1.$2');
+            v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            input.value = v;
         }
-        .form-container {
-            background: #fff;
-            padding: 25px 35px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            width: 100%;
-            max-width: 450px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            font-size: 16px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #388e3c;
-        }
-        .voltar {
-            display: block;
-            margin-top: 15px;
-            text-align: center;
-            color: #555;
-            text-decoration: none;
-        }
-        .voltar:hover {
-            text-decoration: underline;
-        }
-    </style>
+    </script>
 </head>
 <body>
-    <div class="form-container">
+    <main class="form-container" role="main">
         <h1>Editar Professor</h1>
-        <form method="post">
+
+        <?php if ($success): ?>
+            <p class="success-message">Alterações salvas com sucesso!</p>
+        <?php endif; ?>
+
+        <form method="post" novalidate>
             <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome" value="<?= htmlspecialchars($professor['nome']) ?>" required>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                value="<?= htmlspecialchars($professor['nome']) ?>"
+                placeholder="Digite o nome completo"
+                required
+                autocomplete="name"
+                autofocus
+            >
 
             <label for="cpf">CPF:</label>
-            <input type="text" name="cpf" id="cpf" value="<?= htmlspecialchars($professor['cpf']) ?>" required>
+            <input
+                type="text"
+                id="cpf"
+                name="cpf"
+                value="<?= htmlspecialchars($professor['cpf']) ?>"
+                placeholder="000.000.000-00"
+                required
+                maxlength="14"
+                oninput="cpfMask(this)"
+                autocomplete="off"
+            >
 
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" value="<?= htmlspecialchars($professor['email']) ?>" required>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                value="<?= htmlspecialchars($professor['email']) ?>"
+                placeholder="email@exemplo.com"
+                required
+                autocomplete="email"
+            >
 
-            <button type="submit">Salvar Alterações</button>
+            <button type="submit" aria-label="Salvar alterações">Salvar Alterações</button>
         </form>
-        <a class="voltar" href="ver_professores.php">← Voltar</a>
-    </div>
+
+        <a href="ver_professores.php" class="voltar" aria-label="Voltar para a lista de professores">Voltar</a>
+    </main>
 </body>
 </html>
